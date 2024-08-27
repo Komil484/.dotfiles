@@ -1,91 +1,10 @@
 return {
 	{
-		"Mofiqul/dracula.nvim",
-		lazy = false,
-		config = function()
-			require("dracula").setup({
-				overrides = function(colors)
-					return {
-						["@type.builtin"] = {
-							fg = colors.cyan,
-						},
-						["Special"] = {
-							fg = "#50fa7b",
-						},
-					}
-				end,
-			})
-			vim.cmd([[colorscheme dracula]])
-		end,
-	},
-
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		lazy = false,
-		config = true,
-	},
-
-	{
-		"ThePrimeagen/harpoon",
-		keys = { "<leader>h", "<C-r>", "<C-m>", "<C-f>", "<C-p>" },
-		branch = "harpoon2",
-		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
-		config = function()
-			local harpoon = require("harpoon")
-			harpoon:setup()
-
-			vim.keymap.set("n", "<leader>ha", function()
-				harpoon:list():append()
-			end)
-			vim.keymap.set("n", "<leader>hh", function()
-				harpoon.ui:toggle_quick_menu(harpoon:list())
-			end)
-
-			-- Toggle previous & next buffers stored within Harpoon list
-			vim.keymap.set("n", "<leader>hp", function()
-				harpoon:list():prev()
-			end)
-			vim.keymap.set("n", "<leader>hn", function()
-				harpoon:list():next()
-			end)
-		end,
-	},
-
-	{
-		"max397574/better-escape.nvim",
-		opts = {
-			mapping = { "jk" },
-			timeout = vim.o.timeoutlen,
-			keys = "<esc>",
-		},
-	},
-
-	{
-		"numToStr/Comment.nvim",
-		keys = "<leader>c",
-		config = function()
-			require("Comment").setup({
-				toggler = {
-					line = "<leader>cc",
-					block = "<leader>bc",
-				},
-				opleader = {
-					line = "<leader>c",
-					block = "<leader>b",
-				},
-				extra = {
-					above = "<leader>cO",
-					below = "<leader>co",
-					eol = "<leader>cA", -- add comment at the end of line
-				},
-			})
-		end,
-	},
-
-	{
 		"mbbill/undotree",
 		cmd = "UndotreeToggle",
+		config = function(_, opts)
+			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+		end,
 	},
 
 	{
@@ -176,25 +95,11 @@ return {
 
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
 		event = "BufReadPre",
 		opts = {
 			scope = { enabled = false },
 		},
-		config = function(_, opts)
-			require("ibl").setup(opts)
-		end,
-	},
-
-	{
-		"kylechui/nvim-surround",
-		event = "VeryLazy",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-treesitter/nvim-treesitter-textobjects",
-		},
-		config = function()
-			require("nvim-surround").setup()
-		end,
 	},
 
 	{
@@ -210,34 +115,30 @@ return {
 	},
 
 	{
-		"itchyny/calendar.vim",
-		cmd = "Calendar",
-	},
-
-	{
 		"tpope/vim-unimpaired",
 		keys = { "[", "]" },
 	},
 
 	{
 		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
+		config = true,
 	},
 
 	{
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		cmd = "Oil",
-		config = function()
-			require("oil").setup({
-				float = {
-					padding = 4,
-					max_width = 100,
-					max_height = 80,
-				},
-			})
+		opts = {
+			float = {
+				padding = 4,
+				max_width = 100,
+				max_height = 80,
+			},
+		},
+		init = function()
+			vim.keymap.set("n", "-", function()
+				vim.cmd.Oil("--float")
+			end, { desc = "Open file explorer" })
 		end,
 	},
 
@@ -256,6 +157,60 @@ return {
 					require("lint").try_lint()
 				end,
 			})
+		end,
+	},
+
+	{
+		"shortcuts/no-neck-pain.nvim",
+		lazy = false,
+		opts = {
+			width = 105,
+			autocmds = {
+				enableOnVimEnter = true,
+				skipEnteringNoNeckPainBuffer = true,
+			},
+		},
+		init = function()
+			vim.keymap.set("n", "<leader>n", vim.cmd.NoNeckPain, { desc = "Toggle side buffers" })
+		end,
+	},
+
+	{
+		"olimorris/persisted.nvim",
+		lazy = false, -- make sure the plugin is always loaded at startup
+		version = false,
+		opts = {
+			defaults = {
+				autostart = true,
+				save_dir = vim.fn.expand(vim.fn.stdpath("state") .. "/sessions/"), -- Directory where session files are saved
+			},
+			ignored_dirs = {
+				{ "~", exact = true },
+			},
+		},
+		config = function(_, opts)
+			require("persisted").setup(opts)
+			require("telescope").load_extension("persisted")
+
+			vim.keymap.set("n", "<leader>ll", vim.cmd.SessionLoadLast, { desc = "Load previous session" })
+
+			vim.keymap.set("n", "<leader>q", function()
+				vim.cmd.SessionSave()
+				vim.cmd.wqall()
+			end, { desc = "Exit and save session" })
+
+			vim.keymap.set("n", "<leader>Q", function()
+				vim.cmd.SessionDelete()
+				vim.cmd.wqall()
+			end, { desc = "Exit and delete session" })
+
+			vim.keymap.set("n", "<leader>kl", function()
+				vim.cmd.Telescope("persisted")
+			end, { desc = "Telescope sessions" })
+
+			if vim.fn.argc() == 0 then
+				vim.cmd.SessionLoad()
+			end
 		end,
 	},
 }
