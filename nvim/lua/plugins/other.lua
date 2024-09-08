@@ -129,6 +129,12 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		cmd = "Oil",
 		opts = {
+			view_options = {
+				show_hidden = true,
+				is_always_hidden = function(name, bufnr)
+					return name == ".."
+				end,
+			},
 			float = {
 				padding = 4,
 				max_width = 100,

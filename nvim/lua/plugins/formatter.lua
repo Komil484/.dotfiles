@@ -1,3 +1,24 @@
+local function get_default_config_path(config_file)
+    -- Get the full path of the current Lua script
+    local info = debug.getinfo(1, "S")
+
+    -- Removes the "@" character from the path
+    local script_path = info.source:sub(2)
+
+    -- Get the directory of the script
+    local format_directory = vim.fn.fnamemodify(script_path, ":h")
+
+    return vim.fs.joinpath(format_directory, "formatter_configs", config_file)
+end
+
+local function get_command_for_config(config_file, default_command, project_command)
+    if vim.fn.findfile(config_file, ".;") ~= "" then
+        return project_command or { exe = default_command.exe }
+    end
+
+    return default_command or { exe = project_command.exe }
+end
+
 return {
 	"mhartington/formatter.nvim",
 	cmd = "FormatWrite",
@@ -22,6 +43,18 @@ return {
 					function()
 						return { exe = "gdformat" }
 					end,
+				},
+				scala = {
+                    function()
+                        local config_file = ".scalafmt.conf"
+                        return get_command_for_config(
+                            config_file,
+                            {
+                                exe = "scalafmt",
+                                args = { "--config", get_default_config_path(config_file) }
+                            }
+                        )
+                    end,
 				},
 			},
 		})
