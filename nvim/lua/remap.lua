@@ -24,6 +24,7 @@ vim.keymap.set("n", "<C-up>", "<C-w>k")
 
 -- tab navigation
 vim.keymap.set("n", "<leader>t", vim.cmd.tabnew, { desc = "Open new tab" })
+vim.keymap.set("n", "<leader>T", "<C-w>T", { desc = "Move current buffer to a new tab" })
 
 vim.keymap.set("n", "t", "gt")
 vim.keymap.set("n", "T", "gT")
@@ -53,6 +54,6 @@ end, { desc = "Disable formatter" })
 
 -- delete shada contents
 vim.keymap.set("n", "<leader>shada", function()
-    local shada_file = vim.fs.joinpath(vim.fn.stdpath("state"), "shada/")
-    vim.fn.delete(shada_file, "rf")
+	local shada_file = vim.fs.joinpath(vim.fn.stdpath("state"), "shada/")
+	vim.fn.delete(shada_file, "rf")
 end)
