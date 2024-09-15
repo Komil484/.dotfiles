@@ -4,6 +4,7 @@
 # Except
 !.gitignore
 !README.md
-!nvim
-!wezterm
-!powershell
+!nvim/
+!wezterm/
+!powershell/
+powershell/config/local.ps1
