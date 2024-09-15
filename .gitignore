@@ -3,5 +3,7 @@
 
 # Except
 !.gitignore
-!wezterm
+!README.md
 !nvim
+!wezterm
+!powershell
