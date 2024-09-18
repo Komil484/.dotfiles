@@ -15,6 +15,10 @@ function q {
     Exit
 }
 
+function e {
+    explorer .
+}
+
 Set-Alias n nvim
 Set-Alias g git
 Set-Alias sha Get-FileHash
