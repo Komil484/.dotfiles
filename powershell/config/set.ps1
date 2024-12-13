@@ -19,6 +19,10 @@ function e {
     explorer .
 }
 
+function la {
+    ls -Force
+}
+
 Set-Alias n nvim
 Set-Alias g git
 Set-Alias sha Get-FileHash
