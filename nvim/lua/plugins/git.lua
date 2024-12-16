@@ -22,7 +22,7 @@ return {
 			"nvim-telescope/telescope.nvim",
 		},
 		init = function()
-			vim.keymap.set("n", "<leader>gs", vim.cmd.Neogit)
+			vim.keymap.set("n", "<leader>gs", vim.cmd.Neogit, { desc = "Open Neogit" })
 		end,
 		opts = {
 			disable_hint = true,

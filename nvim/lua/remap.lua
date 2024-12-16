@@ -4,13 +4,13 @@ vim.keymap.set("n", "<esc>", vim.cmd.noh) -- no highlight
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
 
 -- common commands
-vim.keymap.set("n", "<leader>w", vim.cmd.write)
-vim.keymap.set("n", "<leader>x", vim.cmd.quit)
-vim.keymap.set("n", "<leader>q", vim.cmd.wqall)
+vim.keymap.set("n", "<leader>w", vim.cmd.write, { desc = "Save buffer" })
+vim.keymap.set("n", "<leader>x", vim.cmd.quit, { desc = "Quit buffer" })
+vim.keymap.set("n", "<leader>q", vim.cmd.wqall, { desc = "Save and Quit All" })
 
-vim.keymap.set("n", "<leader>ss", vim.cmd.split)
-vim.keymap.set("n", "<leader>sv", vim.cmd.vsplit)
-vim.keymap.set("n", "<leader>cc", vim.cmd.cclose)
+vim.keymap.set("n", "<leader>ss", vim.cmd.split, { desc = "Horizontal split buffer" })
+vim.keymap.set("n", "<leader>sv", vim.cmd.vsplit, { desc = "Vertical split buffer" })
+vim.keymap.set("n", "<leader>cc", vim.cmd.cclose, { desc = "Close quickfix window" })
 
 -- navigation
 vim.keymap.set("n", "<S-down>", "<C-d>zz")
