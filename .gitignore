@@ -8,4 +8,6 @@
 !wezterm/
 !yazi/
 !powershell/
+
+# Ignore
 powershell/config/local.ps1
