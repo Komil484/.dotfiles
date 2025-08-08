@@ -6,6 +6,8 @@ config.default_prog = { "powershell", "-NoLogo" }
 config.font = wezterm.font("JetBrains Mono")
 config.color_scheme = "Tokyo Night Storm"
 
+config.enable_kitty_keyboard = true
+
 config.window_decorations = "RESIZE"
 config.use_fancy_tab_bar = false
 config.tab_max_width = 32
