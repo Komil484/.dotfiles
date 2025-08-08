@@ -59,6 +59,7 @@ local setup_lspconfigs = function()
 		"ruff",
 		"clangd",
 		"metals",
+		"gopls",
 	}
 	for _, lsp in ipairs(lsps) do
 		lspconfig[lsp].setup({})
