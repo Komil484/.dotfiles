@@ -83,6 +83,7 @@ return {
 						})
 					end,
 				},
+				go = { require("formatter.filetypes.go").gofmt },
 			},
 		})
 	end,
