@@ -8,7 +8,7 @@ return {
 		local gen_loader = require("mini.snippets").gen_loader
 		return {
 			snippets = {
-				gen_loader.from_file("~/.config/nvim/snippets/global.json"),
+				gen_loader.from_file(vim.fn.stdpath("config") .. "/snippets/global.json"),
 				gen_loader.from_lang(),
 
 				-- gen_loader.from_file(".vscode/project.code-snippets"),
