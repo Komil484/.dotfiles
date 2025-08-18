@@ -58,6 +58,14 @@ local setup_lspconfigs = function()
 		lspconfig[lsp].setup({})
 	end
 
+	lspconfig.gopls.setup({
+		settings = {
+			gopls = {
+				usePlaceholders = true,
+			},
+		},
+	})
+
 	-- lsp setup with opts
 	lspconfig.lua_ls.setup(lua_ls_opts)
 end
