@@ -1,0 +1,6 @@
+{
+    "Snippet for html tags": {
+        "prefix": "ta",
+        "body": "<$1>$0</$1>"
+    }
+}
