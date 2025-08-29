@@ -3,9 +3,21 @@ return {
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
-		opts = {},
+		opts = {
+			transparent = true,
+			on_colors = function(c)
+				-- Because lualine broke stuff with the latest commit
+				c.bg_statusline = c.none
+			end,
+			on_highlights = function(hl, c)
+				-- TabLineFill is currently set to black
+				hl.TabLineFill = {
+					bg = c.none,
+				}
+			end,
+		},
 		config = function(_, opts)
-			-- require("tokyonight-storm").setup(opts)
+			require("tokyonight").setup(opts)
 			vim.cmd.colorscheme("tokyonight-storm")
 		end,
 	},
