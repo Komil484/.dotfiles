@@ -128,11 +128,6 @@ bind "\c-f:menu-complete"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Zoxide
-export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS \
-    --no-sort \
-    --bind=ctrl-z:ignore \
-    --exit-0 \
-"
 eval "$(zoxide init --cmd cd bash)"
 
 # Set up fzf key bindings and fuzzy completion

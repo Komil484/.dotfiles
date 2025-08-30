@@ -40,5 +40,12 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 # --color=bg:#1f2335 \
 # --color=gutter:#1f2335 \
 
+# Zoxide opts
+export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS \
+    --no-sort \
+    --bind=ctrl-z:ignore \
+    --exit-0 \
+"
+
 # Also execute ~/.bashrc
 [[ -r ~/.bashrc ]] && . ~/.bashrc
