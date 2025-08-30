@@ -1,8 +1,9 @@
 #!/bin/bash
 
+alias l='ls -F'
 alias ll='ls -lhF'
 alias la='ls -lAhF'
-alias l='ls -lahF'
+alias lsa='ls -lahF'
 
 alias c='__zoxide_zi'
 

@@ -129,17 +129,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Zoxide
 export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS \
-    --height=10 \
-    --extended \
     --no-sort \
     --bind=ctrl-z:ignore \
-    --cycle \
-    --keep-right \
-    --border=rounded \
-    --height=45% \
-    --info=inline \
-    --layout=reverse \
-    --tabstop=2 \
     --exit-0 \
 "
 eval "$(zoxide init --cmd cd bash)"
