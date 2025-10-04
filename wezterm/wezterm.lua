@@ -20,8 +20,9 @@ config.window_padding = {
 	bottom = "0cell",
 }
 
+config.hide_tab_bar_if_only_one_tab = true
+
 -- config.color_scheme = "Github"
-configs = {}
 config.window_background_gradient = {
 	-- colors = { "#001f4d", "#49024b" },
 	colors = { "#152e48", "#242a49" },
