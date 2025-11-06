@@ -1,8 +1,8 @@
 local function make_mappings(cmp)
 	local cmp_select = { behavior = cmp.SelectBehavior.Select }
 	return {
-		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+		["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
+		["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
 		["<Up>"] = cmp.mapping.select_prev_item(cmp_select),
 		["<Down>"] = cmp.mapping.select_next_item(cmp_select),
 		["<Tab>"] = function(fallback)
