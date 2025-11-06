@@ -53,6 +53,8 @@ local setup_lspconfigs = function()
 		"html",
 		"cssls",
 		"jsonls",
+		"zls",
+		"jdtls",
 	}
 	for _, lsp in ipairs(lsps) do
 		lspconfig[lsp].setup({})
