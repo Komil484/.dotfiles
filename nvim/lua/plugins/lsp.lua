@@ -68,6 +68,21 @@ local setup_lspconfigs = function()
 		},
 	})
 
+	lspconfig.jdtls.setup({
+		settings = {
+			java = {
+				import = {
+					gradle = {
+						enabled = true,
+					},
+				},
+				configuration = {
+					updateBuildConfiguration = "automatic",
+				},
+			},
+		},
+	})
+
 	-- lsp setup with opts
 	lspconfig.lua_ls.setup(lua_ls_opts)
 end
