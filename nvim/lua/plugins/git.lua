@@ -4,12 +4,16 @@ return {
 		event = "VeryLazy",
 		opts = {
 			current_line_blame = true,
+            on_attach = function(bufnr) 
+                local gitsigns = require("gitsigns")
+                vim.keymap.set({ "n", "x", "o" }, "]h", gitsigns.next_hunk)
+                vim.keymap.set({ "n", "x", "o" }, "[h", gitsigns.prev_hunk)
+            end
 		},
 		init = function()
-			vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<cr>")
-		end,
-		config = function(_, opts)
-			require("gitsigns").setup(opts)
+			vim.keymap.set("n", "<leader>gh", function()
+				vim.cmd.Gitsigns("preview_hunk")
+			end)
 		end,
 	},
 

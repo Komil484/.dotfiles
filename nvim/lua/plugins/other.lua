@@ -7,14 +7,14 @@ return {
 		end,
 	},
 
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		event = "BufReadPre",
-		opts = {
-			scope = { enabled = false },
-		},
-	},
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        event = "BufReadPre",
+        opts = {
+            scope = { enabled = false },
+        },
+    },
 
 	{
 		"windwp/nvim-autopairs",
@@ -26,11 +26,6 @@ return {
 			local cmp = require("cmp")
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		end,
-	},
-
-	{
-		"tpope/vim-unimpaired",
-		keys = { "[", "]" },
 	},
 
 	{
@@ -110,26 +105,19 @@ return {
 		},
 		config = function(_, opts)
 			require("persisted").setup(opts)
-			require("telescope").load_extension("persisted")
-
-			vim.keymap.set("n", "<leader>ll", vim.cmd.SessionLoadLast, { desc = "Load previous session" })
 
 			vim.keymap.set("n", "<leader>q", function()
-				vim.cmd.SessionSave()
+				vim.cmd.Persisted("save")
 				vim.cmd.wqall()
 			end, { desc = "Exit and save session" })
 
 			vim.keymap.set("n", "<leader>Q", function()
-				vim.cmd.SessionDelete()
+				vim.cmd.Persisted("delete")
 				vim.cmd.wqall()
 			end, { desc = "Exit and delete session" })
 
-			vim.keymap.set("n", "<leader>kl", function()
-				vim.cmd.Telescope("persisted")
-			end, { desc = "Telescope sessions" })
-
 			if vim.fn.argc() == 0 then
-				vim.cmd.SessionLoad()
+				vim.cmd.Persisted("load")
 			end
 		end,
 	},
