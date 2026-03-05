@@ -9,6 +9,7 @@
 !yazi/
 !powershell/
 !bash/
+!zsh/
 
 # Ignore
 powershell/config/local.ps1
