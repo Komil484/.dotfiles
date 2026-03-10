@@ -6,17 +6,17 @@ end
 
 local setup_lspconfigs = function()
 	local lsps = {
-        "clangd",
+		"clangd",
 		"csharp_ls",
-        "cssls",
+		"cssls",
 		"gdscript",
-        "gopls",
-        "html",
-        "jdtls",
-        "jsonls",
-        "lua_ls",
-        "metals",
-        "nushell",
+		"gopls",
+		"html",
+		"jdtls",
+		"jsonls",
+		"lua_ls",
+		"metals",
+		"nushell",
 		"nil_ls",
 		"nixd",
 		"pylsp",
@@ -50,6 +50,21 @@ local setup_lspconfigs = function()
 			},
 		},
 	})
+
+	vim.lsp.config("lua_ls", {
+		settings = {
+			Lua = {
+				hover = {
+					enumsLimit = 1000,
+					previewFields = 1000,
+				},
+				telemetry = { enable = false },
+				workspace = {
+					library = vim.api.nvim_get_runtime_file("", true),
+				},
+			},
+		},
+	})
 end
 
 return {
@@ -72,7 +87,7 @@ return {
 				window = {
 					normal_hl = "Comment", -- Base highlight group in the notification window
 					winblend = 0, -- Background color opacity in the notification window
-					border = "none", -- Border around the notification window
+					border = "rounded", -- Border around the notification window
 					zindex = 45, -- Stacking priority of the notification window
 					max_width = 0, -- Maximum width of the notification window
 					max_height = 0, -- Maximum height of the notification window
@@ -89,7 +104,7 @@ return {
 				focusable = false,
 				style = "minimal",
 				border = "rounded",
-				source = "always",
+				source = "if_many",
 				header = "",
 				prefix = "",
 			},
