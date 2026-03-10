@@ -20,40 +20,40 @@ return {
 			select = {
 				enable = true,
 				lookahead = true,
-				keymaps = {
-					["af"] = "@function.outer",
-					["if"] = "@function.inner",
-					["ac"] = "@class.outer",
-					["ic"] = "@class.inner",
-					["as"] = "@scope.outer",
-					["ar"] = "@parameter.outer",
-					["ir"] = "@parameter.inner",
-				},
-				selection_modes = {
-					["@function.outer"] = "V",
-					["@class.outer"] = "V",
-				},
+				-- keymaps = {
+				-- 	["af"] = "@function.outer",
+				-- 	["if"] = "@function.inner",
+				-- 	["ac"] = "@class.outer",
+				-- 	["ic"] = "@class.inner",
+				-- 	["as"] = "@scope.outer",
+				-- 	["ar"] = "@parameter.outer",
+				-- 	["ir"] = "@parameter.inner",
+				-- },
+				-- selection_modes = {
+				-- 	["@function.outer"] = "V",
+				-- 	["@class.outer"] = "V",
+				-- },
 				include_surrounding_whitespace = true,
 			},
 			move = {
 				enable = true,
 				set_jumps = true,
-				goto_next_start = {
-					["]f"] = "@function.outer",
-					["]]"] = "@class.outer",
-				},
-				goto_next_end = {
-					["]F"] = "@function.outer",
-					["]["] = "@class.outer",
-				},
-				goto_previous_start = {
-					["[f"] = "@function.outer",
-					["[["] = "@class.outer",
-				},
-				goto_previous_end = {
-					["[F"] = "@function.outer",
-					["[]"] = "@class.outer",
-				},
+				-- goto_next_start = {
+				-- 	["]f"] = "@function.outer",
+				-- 	["]]"] = "@class.outer",
+				-- },
+				-- goto_next_end = {
+				-- 	["]F"] = "@function.outer",
+				-- 	["]["] = "@class.outer",
+				-- },
+				-- goto_previous_start = {
+				-- 	["[f"] = "@function.outer",
+				-- 	["[["] = "@class.outer",
+				-- },
+				-- goto_previous_end = {
+				-- 	["[F"] = "@function.outer",
+				-- 	["[]"] = "@class.outer",
+				-- },
 			},
 		},
 	},
