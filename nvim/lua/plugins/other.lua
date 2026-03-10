@@ -3,18 +3,19 @@ return {
 		"mbbill/undotree",
 		cmd = "UndotreeToggle",
 		config = function(_, opts)
-			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+			require("undotree").setup(opts)
+			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "UndotreeToggle" })
 		end,
 	},
 
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        event = "BufReadPre",
-        opts = {
-            scope = { enabled = false },
-        },
-    },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		event = "BufReadPre",
+		opts = {
+			scope = { enabled = false },
+		},
+	},
 
 	{
 		"windwp/nvim-autopairs",
