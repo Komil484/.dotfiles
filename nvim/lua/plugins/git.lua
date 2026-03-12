@@ -4,11 +4,15 @@ return {
 		event = "VeryLazy",
 		opts = {
 			current_line_blame = true,
-            on_attach = function(bufnr) 
-                local gitsigns = require("gitsigns")
-                vim.keymap.set({ "n", "x", "o" }, "]h", gitsigns.next_hunk)
-                vim.keymap.set({ "n", "x", "o" }, "[h", gitsigns.prev_hunk)
-            end
+			on_attach = function(bufnr)
+				local gitsigns = require("gitsigns")
+				vim.keymap.set({ "n", "x", "o" }, "]h", function()
+					gitsigns.nav_hunk("next")
+				end)
+				vim.keymap.set({ "n", "x", "o" }, "[h", function()
+					gitsigns.nav_hunk("prev")
+				end)
+			end,
 		},
 		init = function()
 			vim.keymap.set("n", "<leader>gh", function()
@@ -23,11 +27,12 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"sindrets/diffview.nvim",
-			"nvim-telescope/telescope.nvim",
+			-- "nvim-telescope/telescope.nvim",
 		},
-		init = function()
-			vim.keymap.set("n", "<leader>gs", vim.cmd.Neogit, { desc = "Open Neogit" })
-		end,
+		-- init = function()
+		-- 	vim.keymap.set("n", "<leader>gs", vim.cmd.Neogit, { desc = "Open Neogit" })
+		--
+		-- end,
 		opts = {
 			disable_hint = true,
 			graph_style = "unicode",
