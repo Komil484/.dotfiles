@@ -53,12 +53,6 @@ end, { desc = "Yank file into clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>P", '"+P', { desc = "Paste from clipboard" })
 
--- disable formatter
-vim.keymap.set("n", "<leader>f", function()
-	vim.api.nvim_del_augroup_by_name("__formatter__")
-	print("Formatter disabled till end of session")
-end, { desc = "Disable formatter" })
-
 -- delete shada contents
 vim.keymap.set("n", "<leader>shada", function()
 	local shada_file = vim.fs.joinpath(vim.fn.stdpath("state"), "shada/")

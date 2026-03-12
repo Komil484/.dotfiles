@@ -24,11 +24,7 @@ return {
 	"mhartington/formatter.nvim",
 	cmd = "FormatWrite",
 	init = function()
-		vim.api.nvim_create_augroup("__formatter__", { clear = true })
-		vim.api.nvim_create_autocmd("BufWritePost", {
-			group = "__formatter__",
-			command = ":FormatWrite",
-		})
+        vim.keymap.set("n", "<leader>f", vim.cmd.Format)
 	end,
 	config = function()
 		local util = require("formatter.util")
