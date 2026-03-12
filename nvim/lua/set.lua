@@ -27,5 +27,5 @@ if vim.fn.has("win32") == 1 then
 	vim.opt.shellquote = ""
 	vim.opt.shellxquote = ""
 elseif vim.fn.has("unix") then
-	vim.opt.shell = (vim.fn.executable("bash") ~= 0) and "bash" or "sh"
+	vim.opt.shell = (vim.fn.executable("zsh") ~= 0) and "zsh" or (vim.fn.executable("bash") ~= 0) and "bash" or "sh"
 end
