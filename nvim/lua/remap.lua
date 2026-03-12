@@ -8,8 +8,8 @@ vim.keymap.set("n", "<leader>w", vim.cmd.write, { desc = "Save buffer" })
 vim.keymap.set("n", "<leader>x", vim.cmd.quit, { desc = "Quit buffer" })
 vim.keymap.set("n", "<leader>q", vim.cmd.wqall, { desc = "Save and Quit All" })
 
-vim.keymap.set("n", "<leader>ss", vim.cmd.split, { desc = "Horizontal split buffer" })
-vim.keymap.set("n", "<leader>sv", vim.cmd.vsplit, { desc = "Vertical split buffer" })
+-- vim.keymap.set("n", "<leader>ss", vim.cmd.split, { desc = "Horizontal split buffer" })
+-- vim.keymap.set("n", "<leader>sv", vim.cmd.vsplit, { desc = "Vertical split buffer" })
 vim.keymap.set("n", "<leader>cc", vim.cmd.cclose, { desc = "Close quickfix window" })
 
 -- navigation
@@ -21,13 +21,17 @@ vim.keymap.set("n", "<C-left>", "<C-w>h")
 vim.keymap.set("n", "<C-right>", "<C-w>l")
 vim.keymap.set("n", "<C-down>", "<C-w>j")
 vim.keymap.set("n", "<C-up>", "<C-w>k")
+vim.keymap.set("t", "<C-left>", "<C-\\><C-n><C-w>h")
+vim.keymap.set("t", "<C-right>", "<C-\\><C-n><C-w>l")
+vim.keymap.set("t", "<C-down>", "<C-\\><C-n><C-w>j")
+vim.keymap.set("t", "<C-up>", "<C-\\><C-n><C-w>k")
 
 -- tab navigation
 vim.keymap.set("n", "<leader>t", vim.cmd.tabnew, { desc = "Open new tab" })
 vim.keymap.set("n", "<leader>T", "<C-w>T", { desc = "Move current buffer to a new tab" })
 
-vim.keymap.set("n", "t", "gt")
-vim.keymap.set("n", "T", "gT")
+-- vim.keymap.set("n", "t", "gt")
+-- vim.keymap.set("n", "T", "gT")
 
 -- swap lines
 vim.keymap.set("v", "<S-up>", ":m '<-2<cr>gv=gv")
@@ -35,6 +39,9 @@ vim.keymap.set("v", "<S-down>", ":m '>+1<cr>gv=gv")
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "*", "*zzzv")
+
+-- join line
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- copy / paste
