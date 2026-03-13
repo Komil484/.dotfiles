@@ -24,7 +24,6 @@ fi
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
-setopt correct                   # Auto correct mistakes
 setopt extendedglob              # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                # Case insensitive globbing
 setopt rcexpandparam             # Array expension with parameters
@@ -56,7 +55,6 @@ WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider
 ## !!! DON'T CHANGE THE ORDER !!!
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Might be Arch specific
 if [[ -r /usr/share/doc/pkgfile/command-not-found.zsh ]]; then
@@ -85,12 +83,6 @@ bindkey '^[[2~' overwrite-mode                                  # Insert key
 bindkey '^[[3~' delete-char                                     # Delete key
 bindkey '^[[C'  forward-char                                    # Right key
 bindkey '^[[D'  backward-char                                   # Left key
-# bindkey "^[[A" history-substring-search-up                      # Up key
-# bindkey "^[[B" history-substring-search-down                    # Down key
-bindkey ";5A" history-beginning-search-backward                 # Ctrl-Up key
-bindkey ";5B" history-beginning-search-forward                  # Ctrl-Down key
-bindkey "^[[1;5A" history-beginning-search-backward             # Ctrl-Up key
-bindkey "^[[1;5B" history-beginning-search-forward              # Ctrl-Down key
 
 bindkey '^[Oc' forward-word                                     #
 bindkey '^[Od' backward-word                                    #
@@ -101,12 +93,8 @@ bindkey '^[[Z' undo                                             # Shift+tab undo
 
 
 ## Set alias 
-alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -h'                                            # Human-readable sizes
-# alias gitu='git add . && git commit && git push'
-# alias ls='ls --color=auto'                                      # Set colored output of ls
-
 
 ## Color man pages
 man() {

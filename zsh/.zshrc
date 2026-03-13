@@ -2,8 +2,8 @@
 [[ -o login ]] || source ~/.zprofile
 
 ## Import easy-zsh-config
-if [[ -r ~/.config/zsh/easy-zsh-config.sh ]]; then
-  source ~/.config/zsh/easy-zsh-config.sh "${PATH_OF_THE_THEME}"
+if [[ -r ~/.config/zsh/my-easy-zsh-config.sh ]]; then
+  source ~/.config/zsh/my-easy-zsh-config.sh "${PATH_OF_THE_THEME}"
 fi
 
 alias ls='ls --color=auto -F'
@@ -12,6 +12,7 @@ alias lsa='ls -lAhF'
 alias lsl='lsa --color=always | less -R'
 
 alias mv='mv -i'
+alias cp='cp -i'                                                # Confirm before overwriting something
 
 alias q=exit
 
