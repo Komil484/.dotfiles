@@ -9,6 +9,9 @@ fi
 alias ls='ls --color=auto -F'
 alias la='ls -lhF'
 alias lsa='ls -lAhF'
+alias lsl='lsa --color=always | less -R'
+
+alias mv='mv -i'
 
 alias q=exit
 
