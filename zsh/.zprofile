@@ -1,6 +1,8 @@
 # Set oh-my-posh theme
 PATH_OF_THE_THEME="/usr/share/oh-my-posh/themes/capr4n.omp.json"
 
+export EDITOR=nvim
+
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
