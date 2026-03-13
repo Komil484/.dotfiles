@@ -10,6 +10,7 @@
 !powershell/
 !bash/
 !zsh/
+!tmux/
 
 # Ignore
 powershell/config/local.ps1
