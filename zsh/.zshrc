@@ -16,6 +16,28 @@ alias cp='cp -i'                                                # Confirm before
 
 alias q=exit
 
+# simple function to emulate clipboard manager using OSC 52 sequence
+cb() {
+  # Read from stdin (piped input) or use arguments
+  local input
+  if [[ -p /dev/stdin ]]; then
+    input=$(cat)
+  else
+    input="$*"
+  fi
+
+  # Only proceed if there is something to copy
+  if [[ -n "$input" ]]; then
+    # Base64 encode the input
+    # -w0 ensures the output is on a single line
+    local encoded=$(echo -n "$input" | base64 -w0)
+    
+    # Send the OSC 52 sequence to the terminal
+    # \e]52;c; is the header, \a is the terminator
+    printf "\e]52;c;%s\a" "$encoded"
+  fi
+}
+
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
