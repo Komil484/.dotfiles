@@ -21,6 +21,7 @@ local setup_lspconfigs = function()
 		"nixd",
 		"pylsp",
 		"ruff",
+        "rust_analyzer",
 		"zls",
 	}
 
