@@ -29,3 +29,5 @@ if vim.fn.has("win32") == 1 then
 elseif vim.fn.has("unix") then
 	vim.opt.shell = (vim.fn.executable("zsh") ~= 0) and "zsh" or (vim.fn.executable("bash") ~= 0) and "bash" or "sh"
 end
+
+vim.g.clipboard = 'osc52'
