@@ -24,7 +24,7 @@ return {
 	"mhartington/formatter.nvim",
 	cmd = "FormatWrite",
 	init = function()
-        vim.keymap.set("n", "<leader>f", vim.cmd.Format)
+		vim.keymap.set("n", "<leader>f", vim.cmd.Format)
 	end,
 	config = function()
 		local util = require("formatter.util")
@@ -61,7 +61,16 @@ return {
 						}, require("formatter.filetypes.c").clangformat())
 					end,
 				},
-				rust = { require("formatter.filetypes.rust").rustfmt },
+				rust = {
+					function()
+						return {
+							exe = "rustfmt",
+							-- args = { "--edition 2021" },
+							stdin = true,
+						}
+					end,
+					-- require("formatter.filetypes.rust").rustfmt
+				},
 				cs = { require("formatter.filetypes.cs").csharpier },
 				python = { require("formatter.filetypes.python").ruff },
 				nix = { require("formatter.filetypes.nix").nixfmt },
